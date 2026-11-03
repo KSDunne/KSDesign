@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KS Design | Websites with personality</title>
+<meta name="description" content="Portfolio of KS Dunne, a web designer and developer who builds bright, friendly websites.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #fff0f5;
+    --petal: #ffd6e5;
+    --bubblegum: #ff8fbb;
+    --rose: #e5307a;
+    --berry: #4a1230;
+    --white: #ffffff;
+    --display: "Fraunces", Georgia, serif;
+    --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--blush);
+    color: var(--berry);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; }
+  p { margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: min(1080px, 100% - 3rem); margin-inline: auto; }
+
+  /* Header */
+  header { padding: 1.25rem 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .logo { font-family: var(--display); font-weight: 700; font-size: 1.4rem; text-decoration: none; }
+  nav { display: flex; gap: 1.5rem; }
+  nav a { text-decoration: none; font-weight: 500; padding: .25rem 0; border-bottom: 2px solid transparent; }
+  nav a:hover { border-color: var(--bubblegum); }
+
+  /* Hero */
+  .hero { padding: 4rem 0 6rem; position: relative; }
+  .hero .wrap { position: relative; }
+  .hero h1 {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 700;
+    max-width: 12ch;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--rose); }
+  .hero p { margin-top: 1.5rem; max-width: 34rem; font-size: 1.2rem; }
+  .btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .9rem 1.8rem;
+    background: var(--rose);
+    color: var(--white);
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 5px 0 var(--berry);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(3px); box-shadow: 0 2px 0 var(--berry); }
+  .sticker {
+    position: absolute;
+    right: 0; top: 0;
+    width: 150px; height: 150px;
+    display: grid; place-items: center;
+    text-align: center;
+    background: var(--bubblegum);
+    color: var(--berry);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.15;
+    border-radius: 50%;
+    border: 3px dashed var(--berry);
+    transform: rotate(12deg);
+    animation: wiggle 1.2s ease-out .4s 1 both;
+  }
+  @keyframes wiggle {
+    0% { transform: rotate(-20deg) scale(.4); opacity: 0; }
+    60% { transform: rotate(18deg) scale(1.08); opacity: 1; }
+    100% { transform: rotate(12deg) scale(1); }
+  }
+
+  /* Scalloped divider */
+  .scallop {
+    height: 28px;
+    background: radial-gradient(circle at 14px 0, var(--petal) 14px, transparent 15px) 0 0 / 28px 28px repeat-x;
+  }
+  .scallop.flip { transform: scaleY(-1); }
+
+  section { padding: 5rem 0; }
+  .pink { background: var(--petal); }
+  h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: .75rem; }
+  .lead { max-width: 36rem; margin-bottom: 3rem; }
+
+  /* Work: polaroids */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; }
+  .polaroid {
+    background: var(--white);
+    padding: 1rem 1rem 1.4rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 0 var(--bubblegum);
+    text-decoration: none;
+    display: block;
+    transition: transform .2s;
+  }
+  .polaroid:nth-child(odd) { transform: rotate(-1.5deg); }
+  .polaroid:nth-child(even) { transform: rotate(1.5deg); }
+  .polaroid:hover { transform: rotate(0) translateY(-6px); }
+  .shot {
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    display: grid; place-items: center;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--berry);
+  }
+  .s1 { background: linear-gradient(135deg, #ffc2da, #ff8fbb); }
+  .s2 { background: linear-gradient(135deg, #ffe0ec, #f7a8c8); }
+  .s3 { background: linear-gradient(135deg, #ffb3d1, #e5307a33); }
+  .polaroid h3 { font-size: 1.4rem; margin-top: 1rem; }
+  .polaroid p { margin-top: .35rem; font-size: .98rem; }
+  .tags { margin-top: .75rem; display: flex; gap: .4rem; flex-wrap: wrap; }
+  .tags span { background: var(--blush); border-radius: 999px; padding: .15rem .7rem; font-size: .85rem; font-weight: 500; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; align-items: center; }
+  .portrait {
+    aspect-ratio: 1;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: var(--bubblegum);
+    border: 3px solid var(--berry);
+    display: grid; place-items: center;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem;
+  }
+  .about p + p { margin-top: 1rem; }
+  .skills { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .skills span { background: var(--white); border: 2px solid var(--berry); border-radius: 999px; padding: .25rem 1rem; font-weight: 500; }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact .lead { margin-inline: auto; }
+  .email {
+    display: inline-block;
+    font-family: var(--display);
+    font-size: clamp(1.5rem, 5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--rose);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 6px;
+    word-break: break-word;
+  }
+  .links { margin-top: 1.5rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-weight: 600; }
+
+  footer { padding: 2rem 0 3rem; text-align: center; font-size: .95rem; }
+
+  @media (max-width: 720px) {
+    .sticker { position: static; margin-bottom: 1.5rem; width: 120px; height: 120px; font-size: 1rem; }
+    .about { grid-template-columns: 1fr; }
+    .portrait { max-width: 260px; }
+    .hero { padding-top: 2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sticker { animation: none; }
+    .polaroid, .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">KS Design 🌸</a>
+    <nav aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div class="sticker" aria-hidden="true">Open for<br>projects!</div>
+      <h1>Websites with <em>personality</em></h1>
+      <p>Hi, I'm KS Dunne. I design and build bright, friendly websites that look good on every screen.</p>
+      <a class="btn" href="#work">See my work</a>
+    </div>
+  </div>
+
+  <div class="scallop" aria-hidden="true"></div>
+
+  <section id="work" class="pink">
+    <div class="wrap">
+      <h2>Things I've made</h2>
+      <p class="lead">A few recent projects. Click one to see the live site.</p>
+
+      <div class="grid">
+        <!-- Replace each card: swap the .shot div for <img src="images/yourfile.jpg" alt="..."> and update the link, title and text -->
+        <a class="polaroid" href="#">
+          <div class="shot s1">Project screenshot goes here</div>
+          <h3>Project one</h3>
+          <p>One sentence about what this site is and who it's for.</p>
+          <div class="tags"><span>HTML</span><span>CSS</span></div>
+        </a>
+        <a class="polaroid" href="#">
+          <div class="shot s2">Project screenshot goes here</div>
+          <h3>Project two</h3>
+          <p>One sentence about what this site is and who it's for.</p>
+          <div class="tags"><span>Design</span><span>JavaScript</span></div>
+        </a>
+        <a class="polaroid" href="#">
+          <div class="shot s3">Project screenshot goes here</div>
+          <h3>Project three</h3>
+          <p>One sentence about what this site is and who it's for.</p>
+          <div class="tags"><span>Responsive</span><span>Branding</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="scallop flip" aria-hidden="true" style="margin-top:-1px"></div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="portrait">Your photo goes here</div>
+      <div>
+        <h2>A bit about me</h2>
+        <p>I'm a web designer and developer who loves turning ideas into pretty, easy-to-use websites. Write two or three sentences here about how you got started and what you enjoy most.</p>
+        <p>Add what you're looking for too: freelance work, a job, or collaborations.</p>
+        <div class="skills">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive design</span><span>GitHub</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="scallop" aria-hidden="true"></div>
+
+  <section id="contact" class="pink contact">
+    <div class="wrap">
+      <h2>Let's make something lovely</h2>
+      <p class="lead">Got a project in mind? Send me a message and I'll reply soon.</p>
+      <a class="email" href="mailto:you@example.com">you@example.com</a>
+      <div class="links">
+        <a href="https://github.com/KSDunne">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Made with 💕 by KS Dunne</div>
+</footer>
+
+</body>
+</html>
